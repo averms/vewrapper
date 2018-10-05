@@ -15,7 +15,7 @@ echoerr() {
     printf "%s\n" "$*" >&2;
 }
 
-activate() {
+actvenv() {
     if [[ ! -d "$VENV_HOME/$1" ]]; then
         echoerr "E: Environment '$VENV_HOME/$1' does not contain an activate script."
         return 1
