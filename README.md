@@ -14,19 +14,21 @@ Since the script simply exposes some global functions into your bash session you
 
 ## Helper Functions
 
-All virtual environments are stored in a `~/.venv` folder.
+All virtual environments are stored in a `~/.venv` folder by default.
+
+You can change this folder to whichever folder you prefer by exporting a `VENV_HOME` variable _before_ sourcing `.pyvenvwrapper`.
 
 #### `mkvenv [env-name]`
-Creates a python virtual environment at `~/.venv/[env-name]`.
+Creates a python virtual environment at `$VENV_HOME/[env-name]`.
 
 #### `rmvenv [env-name]`
-Deletes a python virtual environment at `~/.venv/[env-name]`.
+Deletes a python virtual environment at `$VENV_HOME/[env-name]`.
 
 #### `lsvenv`
-Provides a list of environment names currently stored in `~/.venv`
+Provides a list of environment names currently stored in `$VENV_HOME`
 
 #### `activate [env-name]`
-Activates the environment located at `~/.venv/[env-name]`.  No need to source the `activate` script in the environment folder!
+Activates the environment located at `$VENV_HOME/[env-name]`.  No need to source the `activate` script in the environment folder!
 
 #### `deactivate`
 Deactivates the currently active environment (if any).
