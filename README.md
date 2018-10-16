@@ -1,22 +1,31 @@
-## Pyvenvwrapper
+# pyvenvwrapper
 
-A set of helper functions written in Bash that allow you to manage your Python3 venv environment in a convenient way.
-These functions are small improvements over similar bash scripts floating around the internet that implement these functions.
+A set of helper functions written in Bash that allow you to manage your python3 virtual
+environments in a convenient way.  These functions are small improvements over similar bash
+scripts floating around the internet.
 
 ## Requirements
-* `Python3` and `Python3-venv` (obviously).
+
+* `python3` >= `3.5`
 * A UNIX shell with some standard programs/commands, i.e., `command`, `basename`, `mkdir`, `ls`.
 
 ## Installation
-Since the script simply exposes some global functions into your bash session you can pretty much do whatever you want to install it -- you just need to make sure that the file gets `source`d somehow.  Here are two options:
-* Option 1:  Copy the `.pyvenvwrapper` file anywhere onto your machine, then add `source /path/to/.pyvenvwrapper` to your `.bashrc` or `.bash_profile`.
-* Option 2:  Copy the source code in `.pyvenvwrapper` into your `~/.bashrc` or `~/.bash_profile` file.
 
-## Helper Functions
+Since the script simply exposes some global functions into your bash session you can
+pretty much do whatever you want to install it -- you just need to make sure that the file
+gets `source`d somehow.  Here are two options:
+* Option 1:  Copy the `pyvenvwrapper.sh` file anywhere onto your machine, then add `source
+  /path/to/pyvenvwrapper.sh` to your `.bashrc` or `.bash_profile`.
+* Option 2:  Copy the source code in `pyvenvwrapper.sh` into your `~/.bashrc` or
+  `~/.bash_profile` file.
 
-All virtual environments are stored in a `~/.venv` folder by default.
+## Usage
 
-You can change this folder to whichever folder you prefer by exporting a `VENV_HOME` variable _before_ sourcing `.pyvenvwrapper`.
+All virtual environments are stored in a `$HOME/.venv` folder by default.
+You can change this folder to whichever folder you prefer by exporting a `VENV_HOME`
+variable _before_ sourcing `.pyvenvwrapper`.
+
+### Commands
 
 #### `mkvenv [env-name]`
 Creates a python virtual environment at `$VENV_HOME/[env-name]`.
@@ -27,12 +36,17 @@ Deletes a python virtual environment at `$VENV_HOME/[env-name]`.
 #### `lsvenv`
 Provides a list of environment names currently stored in `$VENV_HOME`
 
-#### `activate [env-name]`
-Activates the environment located at `$VENV_HOME/[env-name]`.  No need to source the `activate` script in the environment folder!
+#### `actvenv [env-name]`
+Activates the environment located at `$VENV_HOME/[env-name]`.
+
+#### `updvenv [env-name]`
+Updates the environment located at `$VENV_HOME/[env-name]` to the latest system python.
 
 #### `deactivate`
 Deactivates the currently active environment (if any).
 
-## Author
+## Authors
 
+* **Aman** - [aaether32323](https://github.com/aaether32323)
 * **Christopher Sabater Cordero** - [cs-cordero](https://github.com/cs-cordero)
+
