@@ -1,6 +1,10 @@
-################################################################################
-#   Python Venv Wrapper
-################################################################################
+##############################################################################
+# Shell functions to act as wrapper for python3 -m venv
+#
+# Authors:
+#   - aaether32323
+#   - cs-cordero
+##############################################################################
 
 # Variables and helper functions
 if [ "${VENV_HOME:-}" = "" ]
@@ -64,7 +68,6 @@ rmvenv() {
 }
 
 updvenv() {
-
     [[ $# -eq 0 ]] && vw_echoerr "Please give the name of an environment."; return 1
     if [[ ! -d "$VENV_HOME/$1" ]]; then
         vw_echoerr "E: Environment '$VENV_HOME/$1' does not exist."
