@@ -49,14 +49,16 @@ mkvenv() {
 }
 
 rmvenv() {
-    [[ $# -eq 0 ]] && vw_echoerr "Please give the name of an environment."; return 1
+    if [[ $# -eq 0 || $1 == *.* ]]; then
+        vw_echoerr "Please give the name of an environment."
+        return 1
+    fi
     if [[ ! -d "$VENV_HOME/$1" ]]; then
         vw_echoerr "E: Environment '$VENV_HOME/$1' does not exist."
         return 1
     fi
-    if [[ "$VIRTUAL_ENV" == "$VENV_HOME/$1" ]]; then
-        deactivate
-    fi
+    [[ "$VIRTUAL_ENV" == "$VENV_HOME/$1" ]] && deactivate
+    echo "yes"
     vw_trash "$VENV_HOME/$1"
     [[ $? = 0 ]] && echo "Python venv removed at $VENV_HOME/$1."
 }
