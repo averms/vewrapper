@@ -14,9 +14,13 @@ scripts floating around the internet.
 Since the script simply exposes some global functions into your bash session you can
 pretty much do whatever you want to install it -- you just need to make sure that the file
 gets `source`d somehow.  Here are two options:
-* Option 1:  Copy `pyvenvwrapper.sh` anywhere onto your machine, then add `source
+
+* Copy `pyvenvwrapper.sh` anywhere onto your machine, then add `source
   /path/to/pyvenvwrapper.sh` to your `.bashrc` or `.bash_profile`.
-* Option 2:  Copy the source code in `pyvenvwrapper.sh` into your `.bashrc` or
+
+Or
+
+* Copy the source code in `pyvenvwrapper.sh` into your `.bashrc` or
   `.bash_profile` file.
 
 ## Usage

@@ -22,11 +22,11 @@ vw_trash() {
 
 vw_echoerr() {
     # print to stderr
-    printf "%s\n" "$*" >&2;
+    printf "%s\n" "$*" >&2
 }
 
 actvenv() {
-    [[ $# -eq 0 ]] && vw_echoerr "Please give the name of an environment."; return 1
+    [[ $# -eq 0 ]] && vw_echoerr "Please give the name of an environment." && return 1
     if [[ ! -d "$VENV_HOME/$1" ]]; then
         vw_echoerr "E: Environment '$VENV_HOME/$1' does not contain an activate script."
         return 1
@@ -39,13 +39,13 @@ lsvenv() {
 }
 
 mkvenv() {
-    [[ $# -eq 0 ]] && vw_echoerr "Please give a name."; return 1
+    [[ $# -eq 0 ]] && vw_echoerr "Please give a name." && return 1
     if [[ -d "$VENV_HOME/$1" ]]; then
         vw_echoerr "$1 already exists in $VENV_HOME."
         return 1
     fi
     # safer to create venvs on system python only.
-    deactivate
+    deactivate 2> /dev/null
 
     python3 -m venv "$VENV_HOME/$1"
     source "$VENV_HOME/$1/bin/activate"
@@ -68,7 +68,7 @@ rmvenv() {
 }
 
 updvenv() {
-    [[ $# -eq 0 ]] && vw_echoerr "Please give the name of an environment."; return 1
+    [[ $# -eq 0 ]] && vw_echoerr "Please give the name of an environment." && return 1
     if [[ ! -d "$VENV_HOME/$1" ]]; then
         vw_echoerr "E: Environment '$VENV_HOME/$1' does not exist."
         return 1
