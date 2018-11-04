@@ -53,6 +53,6 @@ Deactivates the currently active environment (if any).
 
 ## Authors
 
-* **Aman** - [aaether32323](https://github.com/aaether32323)
+* **Aman** - [a-vrma](https://github.com/a-vrma)
 * **Christopher Sabater Cordero** - [cs-cordero](https://github.com/cs-cordero)
 
