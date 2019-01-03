@@ -6,8 +6,8 @@ similar shell scripts floating around the internet.
 
 ## Requirements
 
-* python3 >= 3.5
-* A POSIX-compliant shell with some standard programs/commands, i.e.,
+* python >= 3.5
+* A POSIX-compliant shell with some standard programs/builtins, i.e.,
   `command`, `basename`, `mkdir`, `ls`.
 
 ## Installation
@@ -32,9 +32,9 @@ Or
 All virtual environments are stored in `$VENV_HOME` folder. There is no default, you need
 to export a `VENV_HOME` variable _before_ sourcing the script. It needs to be an absolute
 path (not symlinked), and it **can't end with a slash.** A good example would be:
-
-    export VENV_HOME="$HOME/.local/venv"
-
+```
+export VENV_HOME="$HOME/.local/venv"
+```
 By default, the script uses [`trash-cli`](https://github.com/sindresorhus/trash-cli) to
 remove venvs. This can be changed by editing the `VW_RM` variable.
 
