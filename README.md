@@ -6,7 +6,7 @@ similar shell scripts floating around the internet.
 
 ## Requirements
 
-* `python3` >= `3.5`
+* python3 >= 3.5
 * A POSIX-compliant shell with some standard programs/commands, i.e.,
   `command`, `basename`, `mkdir`, `ls`.
 
