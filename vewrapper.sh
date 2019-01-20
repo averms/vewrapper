@@ -1,8 +1,8 @@
 #!/bin/sh
 # -----------------------------------------------------------------------------
 # Shell functions to act as wrapper for `python3 -m venv`
-# POSIX compatible version, is also not perfectly utf-8 compatible
-#
+# POSIX compatible version, technically not multibyte compatible,
+# but it only checks if equal to '/' from the end so it still works
 # Authors:
 #   - a-vrma
 #   - cs-cordero
@@ -10,7 +10,7 @@
 
 # Variables and helper functions
 if [ -z "${VENV_HOME}" ] || [ "$(printf "%s" "$VENV_HOME" | tail -c 1)" = '/' ]; then
-    # the tail command is not utf-8 compatible
+    # the tail command goes by bytes not characters but it still works in our case
 	printf "%s\n%s\n" "Please set your VENV_HOME to a valid string" \
 		"It needs to be non-empty, real (not a symlink), and not end with a slash"
 	# we return non-error cause we don't want to crash the shell if -e is on
