@@ -1,18 +1,21 @@
 # vewrapper
 
-A set of helper functions written in POSIX sh / bash that allow you to manage your python3
+A set of helper functions written in shell script that allow you to manage your python3
 virtual environments in a convenient way. These functions are small improvements over
 similar shell scripts floating around the internet.
 
+**NOTE: The POSIX-compatible script is not maintained anymore, but I will still
+accept pull requests.**
+
 ## Requirements
 
-* python >= 3.5
-* A POSIX-compliant shell with some standard programs/builtins, i.e.,
+- python >= 3.5
+- A POSIX-compliant shell with some standard programs/builtins, i.e.,
   `command`, `basename`, `mkdir`, `ls`.
 
 ## Installation
 
-There are two scripts, one for bash and one for any POSIX compliant shell.
+There are two scripts, one for bash/zsh and one for any POSIX compliant shell.
 The following instructions are for bash.
 
 Since the script simply exposes some global functions into your session you can
@@ -24,8 +27,7 @@ gets `source`d somehow.  Here are two options:
 
 Or
 
-- Copy the source code in `vewrapper.bash` into your `.bashrc` or
-  `.bash_profile`.
+- Copy the source code in `vewrapper.bash` into your `.bashrc`.
 
 ## Usage
 
@@ -55,11 +57,7 @@ Activates the environment located at `$VENV_HOME/[env-name]`.
 #### `upve [env-name]`
 Updates the environment located at `$VENV_HOME/[env-name]` to the latest system python.
 
-#### `deactivate`
-Deactivates the currently active environment (if any).
-
 ## Authors
 
-* **Aman** - [a-vrma](https://github.com/a-vrma)
-* **Christopher Sabater Cordero** - [cs-cordero](https://github.com/cs-cordero)
-
+- **Aman** - [a-vrma](https://github.com/a-vrma)
+- **Christopher Sabater Cordero** - [cs-cordero](https://github.com/cs-cordero)
