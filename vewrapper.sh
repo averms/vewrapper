@@ -1,4 +1,3 @@
-#!/bin/sh
 # -----------------------------------------------------------------------------
 # Shell functions to act as wrapper for `python3 -m venv`
 # POSIX compatible version, technically not multibyte compatible,

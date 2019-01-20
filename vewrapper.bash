@@ -1,4 +1,3 @@
-#!/bin/bash
 # -----------------------------------------------------------------------------
 # Shell functions to act as wrapper for `python3 -m venv`
 # See LICENSE file for license details.
