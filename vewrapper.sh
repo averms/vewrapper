@@ -3,9 +3,9 @@
 # Shell functions to act as wrapper for `python3 -m venv`
 # POSIX compatible version, technically not multibyte compatible,
 # but it only checks if equal to '/' from the end so it still works
+#
 # Authors:
 #   - a-vrma
-#   - cs-cordero
 # -----------------------------------------------------------------------------
 
 # Variables and helper functions
