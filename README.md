@@ -4,9 +4,6 @@ A set of helper functions written in shell script that allow you to manage your 
 virtual environments in a convenient way. These functions are small improvements over
 similar shell scripts floating around the internet.
 
-**NOTE: The POSIX-compatible script is not maintained anymore, but I will still
-accept pull requests.**
-
 ## Requirements
 
 - python >= 3.5
@@ -17,6 +14,9 @@ accept pull requests.**
 
 There are two scripts, one for bash/zsh and one for any POSIX compliant shell.
 The following instructions are for bash.
+
+**NOTE: The POSIX-compatible script is not maintained anymore, but I will still
+accept pull requests.**
 
 Since the script simply exposes some global functions into your session you can
 pretty much do whatever you want to install it -- you just need to make sure that the file
