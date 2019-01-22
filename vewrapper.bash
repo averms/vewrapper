@@ -1,10 +1,9 @@
 # -----------------------------------------------------------------------------
 # Shell functions to act as wrapper for `python3 -m venv`
-# See LICENSE file for license details.
 #
-# Authors:
-#   - a-vrma
-#   - cs-cordero
+# Copyright (c) 2018 Christopher Sabater Cordero
+# Copyright (c) 2018 - 2019 Aman Verma
+# See LICENSE file for license details.
 # -----------------------------------------------------------------------------
 
 # Variables and helper functions
