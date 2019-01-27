@@ -1,3 +1,4 @@
+#!/bin/bash
 # -----------------------------------------------------------------------------
 # Shell functions to act as wrapper for `python3 -m venv`
 #
@@ -8,25 +9,25 @@
 
 # Variables and helper functions
 if [[ -z ${VENV_HOME} ]] || [[ ${VENV_HOME: -1} = '/' ]]; then
-	printf "%s\n%s\n" "Please set your VENV_HOME to a valid string" \
-		"It needs to be non-empty, real (not a symlink), and not end with a slash"
-	# we return non-error cause we don't want to crash the shell if -e is on
-	return 0
+    echo >&2 "Please set your VENV_HOME to a valid string"
+    echo >&2 "It needs to be non-empty, real (not a symlink), and not end with a slash"
+    # we return non-error cause we don't want to crash the shell if -e is on
+    return 0
 fi
 
 # create venv_home if it doesn't exist
 mkdir -p "$VENV_HOME"
 
 # command to use to trash venvs
-VW_rm='command trash'
+VENV_rm='command trash'
 
-VW_noenvname() {
+VENV_noenvname() {
     echo >&2 "Please give the name of an environment."
 }
 
 acve() {
     if [[ $# -eq 0 ]]; then
-        VW_noenvname
+        VENV_noenvname
         return 1
     fi
     if [[ ! -d $VENV_HOME/$1 ]]; then
@@ -37,7 +38,7 @@ acve() {
 }
 
 lsve() {
-	command ls -1 "$VENV_HOME"
+    command ls -1 "$VENV_HOME"
 }
 
 mkve() {
@@ -61,21 +62,21 @@ mkve() {
 
 rmve() {
     if [[ $# -eq 0 ]]; then
-        VW_noenvname
+        VENV_noenvname
         return 1
     fi
-    if [[ ! -d $VENV_HOME/$1 ]]; then
+    if [[ ! -d $VENV_HOME/$1 || $1 = '.' ]]; then
         echo >&2 "E: Environment '$VENV_HOME/$1' does not exist."
         return 1
     fi
     [[ $VIRTUAL_ENV = $VENV_HOME/$1 ]] && deactivate
-    $VW_rm "$VENV_HOME/$1" || return 1
+    $VENV_rm "$VENV_HOME/$1" || return 1
     echo "Python venv removed at $VENV_HOME/$1"
 }
 
 upve() {
     if [[ $# -eq 0 ]]; then
-        VW_noenvname
+        VENV_noenvname
         return 1
     fi
     if [[ ! -d $VENV_HOME/$1 ]]; then
