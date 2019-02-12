@@ -31,9 +31,14 @@ acve() {
         return 1
     fi
     if [[ ! -d $VENV_HOME/$1 ]]; then
-        echo >&2 "E: Environment '$VENV_HOME/$1' does not contain an activate script."
+        echo >&2 "E: Environment '$1' does not contain an activate script."
         return 1
     fi
+    if [[ $VIRTUAL_ENV = $VENV_HOME/$1 ]]; then
+        echo >&2 "E: Environment '$1' is already activated."
+        return 1
+    fi
+    [[ -n $VIRTUAL_ENV ]] && deactivate
     source "$VENV_HOME/$1/bin/activate"
 }
 
