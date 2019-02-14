@@ -13,6 +13,7 @@ log() {
 }
 
 >tester.log
+
 # && means command should fail.
 # || means command should succeed.
 rmve faily && {
