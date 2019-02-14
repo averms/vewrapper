@@ -20,77 +20,74 @@ mkdir -p "$VENV_HOME"
 
 # command to use to trash venvs
 VENV_rm='command trash'
-
-VENV_noenvname() {
-    echo >&2 "Please give the name of an environment."
-}
+# generic error message for when no environment name is given.
+VENV_noenvname='Please give the name of an environment.'
 
 acve() {
-    if [[ $# -eq 0 ]]; then
-        VENV_noenvname
+    if [[ $# -ne 1 ]]; then
+        echo >&2 "$VENV_noenvname"
         return 1
     fi
     if [[ ! -d $VENV_HOME/$1 ]]; then
-        echo >&2 "E: Environment '$1' does not contain an activate script."
-        return 1
-    fi
-    if [[ $VIRTUAL_ENV = $VENV_HOME/$1 ]]; then
-        echo >&2 "E: Environment '$1' is already activated."
+        echo >&2 "E: '$1' does not exist."
         return 1
     fi
     [[ -n $VIRTUAL_ENV ]] && deactivate
+
     source "$VENV_HOME/$1/bin/activate"
 }
 
-lsve() {
-    command ls -1 "$VENV_HOME"
-}
-
 mkve() {
-    if [[ $# -eq 0 ]]; then
-        echo >&2 "Please give a name."
+    if [[ $# -ne 1 ]]; then
+        echo >&2 "$VENV_noenvname"
         return 1
     fi
     if [[ -d $VENV_HOME/$1 ]]; then
-        echo >&2 "$1 already exists in $VENV_HOME"
+        echo >&2 "E: '$1' already exists"
         return 1
     fi
     # safer to create venvs on system python only.
-    deactivate 2> /dev/null
+    [[ -n $VIRTUAL_ENV ]] && deactivate
 
     python3 -m venv "$VENV_HOME/$1"
     source "$VENV_HOME/$1/bin/activate" || return 1
     # TODO: notify user of fail here and in rmve
     pip install -U pip setuptools
-    echo "Python venv created at $VENV_HOME/$1"
-}
-
-rmve() {
-    if [[ $# -eq 0 ]]; then
-        VENV_noenvname
-        return 1
-    fi
-    if [[ ! -d $VENV_HOME/$1 || $1 = '.' ]]; then
-        echo >&2 "E: Environment '$VENV_HOME/$1' does not exist."
-        return 1
-    fi
-    [[ $VIRTUAL_ENV = $VENV_HOME/$1 ]] && deactivate
-    $VENV_rm "$VENV_HOME/$1" || return 1
-    echo "Python venv removed at $VENV_HOME/$1"
+    echo "'$1' was created"
 }
 
 upve() {
-    if [[ $# -eq 0 ]]; then
-        VENV_noenvname
+    if [[ $# -ne 1 ]]; then
+        echo >&2 "$VENV_noenvname"
         return 1
     fi
     if [[ ! -d $VENV_HOME/$1 ]]; then
-        echo >&2 "E: Environment '$VENV_HOME/$1' does not exist."
+        echo >&2 "E: '$1' does not exist."
         return 1
     fi
-
     # deactivate to make sure you are upgrading to system python.
-    deactivate
+    [[ -n $VIRTUAL_ENV ]] && deactivate
+
     python3 -m venv --upgrade "$VENV_HOME/$1" || return 1
-    echo "Python venv upgraded at $VENV_HOME/$1"
+    echo "'$1' was upgraded."
+}
+
+rmve() {
+    if [[ $# -ne 1 ]]; then
+        echo >&2 "$VENV_noenvname"
+        return 1
+    fi
+    if [[ ! -d $VENV_HOME/$1 || $1 = '.' ]]; then
+        echo >&2 "E: '$1' does not exist."
+        return 1
+    fi
+    [[ $VIRTUAL_ENV = $VENV_HOME/$1 ]] && deactivate
+
+    $VENV_rm "$VENV_HOME/$1" || return 1
+    echo "'$1' was removed."
+}
+
+lsve() {
+    # people often alias ls.
+    command ls -1 "$VENV_HOME"
 }
