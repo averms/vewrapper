@@ -9,8 +9,8 @@
 
 # Variables and helper functions
 if [[ -z ${VENV_HOME} ]] || [[ ${VENV_HOME: -1} = '/' ]]; then
-    echo >&2 "Please set your VENV_HOME to a valid string"
-    echo >&2 "It needs to be non-empty, real (not a symlink), and not end with a slash"
+    echo "Please set your VENV_HOME to a valid string" >&2
+    echo "It needs to be non-empty, real (not a symlink), and not end with a slash" >&2
     # we return non-error cause we don't want to crash the shell if -e is on
     return 0
 fi
@@ -25,11 +25,11 @@ VENV_noenvname='Please give the name of an environment.'
 
 acve() {
     if [[ $# -ne 1 ]]; then
-        echo >&2 "$VENV_noenvname"
+        echo "$VENV_noenvname" >&2
         return 1
     fi
     if [[ ! -d $VENV_HOME/$1 ]]; then
-        echo >&2 "E: '$1' does not exist."
+        echo "E: '$1' does not exist." >&2
         return 1
     fi
     [[ -n $VIRTUAL_ENV ]] && deactivate
@@ -39,11 +39,11 @@ acve() {
 
 mkve() {
     if [[ $# -ne 1 ]]; then
-        echo >&2 "$VENV_noenvname"
+        echo "$VENV_noenvname" >&2
         return 1
     fi
     if [[ -d $VENV_HOME/$1 ]]; then
-        echo >&2 "E: '$1' already exists"
+        echo "E: '$1' already exists" >&2
         return 1
     fi
     # safer to create venvs on system python only.
@@ -58,11 +58,11 @@ mkve() {
 
 upve() {
     if [[ $# -ne 1 ]]; then
-        echo >&2 "$VENV_noenvname"
+        echo "$VENV_noenvname" >&2
         return 1
     fi
     if [[ ! -d $VENV_HOME/$1 ]]; then
-        echo >&2 "E: '$1' does not exist."
+        echo "E: '$1' does not exist." >&2
         return 1
     fi
     # deactivate to make sure you are upgrading to system python.
@@ -74,11 +74,11 @@ upve() {
 
 rmve() {
     if [[ $# -ne 1 ]]; then
-        echo >&2 "$VENV_noenvname"
+        echo "$VENV_noenvname" >&2
         return 1
     fi
     if [[ ! -d $VENV_HOME/$1 || $1 = '.' ]]; then
-        echo >&2 "E: '$1' does not exist."
+        echo "E: '$1' does not exist." >&2
         return 1
     fi
     [[ $VIRTUAL_ENV = $VENV_HOME/$1 ]] && deactivate
