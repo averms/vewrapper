@@ -8,15 +8,14 @@ similar shell scripts floating around the internet.
 
 - python >= 3.5
 - A bash-like shell with some standard programs/builtins/keywords, i.e.,
-   `mkdir`, `command`, `[[`.
+  `mkdir`, `command`, `[[`.
 
 ## Installation
 
 There are two scripts, one for bash/zsh and one for any POSIX compliant shell.
 The following instructions are for bash.
 
-**NOTE: The POSIX-compatible script is not maintained anymore, but I will still
-accept pull requests.**
+**NOTE: The POSIX-compatible script is not maintained anymore, but you can find it in the git history.**
 
 Since the script simply exposes some global functions into your session you can
 pretty much do whatever you want to install it -- you just need to make sure that the file
@@ -46,7 +45,7 @@ remove venvs. This can be changed by editing the `VENV_rm` variable.
 Creates a python virtual environment at `$VENV_HOME/[env-name]`.
 
 #### `rmve [env-name]`
-Deletes a python virtual environment at `$VENV_HOME/[env-name]`.
+Deletes the python virtual environment at `$VENV_HOME/[env-name]`.
 
 #### `lsve`
 Provides a list of environment names currently stored in `$VENV_HOME`.
