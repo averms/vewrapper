@@ -77,7 +77,7 @@ rmve() {
         echo "$VENV_noenvname" >&2
         return 1
     fi
-    if [[ ! -d $VENV_HOME/$1 || $1 = '.' ]]; then
+    if [[ ! -d $VENV_HOME/$1 || $1 = . ]]; then
         echo "E: '$1' does not exist." >&2
         return 1
     fi
