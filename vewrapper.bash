@@ -88,6 +88,5 @@ rmve() {
 }
 
 lsve() {
-    # people often alias ls.
-    command ls -1 "$VENV_HOME"
+    \ls -1 "$VENV_HOME" | cat
 }
