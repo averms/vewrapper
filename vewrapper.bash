@@ -19,7 +19,11 @@ fi
 mkdir -p "$VENV_HOME"
 
 # command to use to trash venvs
-VENV_rm='command trash'
+if [[ $(uname) = 'Darwin' ]]; then
+    VENV_rm='\trash'
+else
+    VENV_rm='\gio trash'
+fi
 # generic error message for when no environment name is given.
 VENV_noenvname='Please give the name of an environment.'
 
