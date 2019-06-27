@@ -36,8 +36,8 @@ path (not symlinked), and it **can't end with a slash.** A good example would be
 ```
 export VENV_HOME="$HOME/.local/venv"
 ```
-By default, the script uses [`trash-cli`](https://github.com/sindresorhus/trash-cli) to
-remove venvs. This can be changed by editing the `VENV_rm` variable.
+The `VENV_rm` variable is the command used to remove virtual environments. You can set
+it to `rm -rf`, `gio trash` (default), `ktrash`, or whatever you want.
 
 ### Commands
 
