@@ -88,5 +88,6 @@ rmve() {
 }
 
 lsve() {
-    \ls -1 "$VENV_HOME" | cat
+    # better sorting (underscores are first).
+    LC_COLLATE=C \ls -1 "$VENV_HOME"
 }
