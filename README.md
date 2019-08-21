@@ -12,8 +12,8 @@ similar shell scripts floating around the internet.
 
 ## Installation
 
-There are two scripts, one for bash/zsh and one for any POSIX compliant shell.
-The following instructions are for bash.
+There are two scripts, one for bash/zsh ~~and one for any POSIX compliant shell~~.
+The following instructions are for bash/zsh.
 
 **NOTE: The POSIX-compatible script is not maintained anymore, but you can find it in the git history.**
 
@@ -21,16 +21,16 @@ Since the script simply exposes some global functions into your session you can
 pretty much do whatever you want to install it -- you just need to make sure that the file
 gets `source`d somehow.  Here are two options:
 
-- Copy `vewrapper.bash` anywhere onto your machine, then source it in your
+- Copy `vewrapper.bash` from the latest release anywhere onto your machine, then source it in your
   `.bashrc`.
 
 Or
 
-- Copy the source code in `vewrapper.bash` into your `.bashrc`.
+- Copy the source code in `vewrapper.bash` from the latest release into your `.bashrc`.
 
 ## Usage
 
-All virtual environments are stored in `$VENV_HOME` folder. There is no default, you need
+All virtual environments are stored in `$VENV_HOME` folder. There is no default; you need
 to export a `VENV_HOME` variable before sourcing the script. It needs to be an absolute
 path (not symlinked), and it **can't end with a slash.** A good example would be:
 ```
