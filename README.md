@@ -1,12 +1,11 @@
 # vewrapper
 
-A set of helper functions written in shell script that allow you to manage your python3
-virtual environments in a convenient way. These functions are small improvements over
-similar shell scripts floating around the internet.
+A set of helper functions written in shell script that allow you to manage your Python 3
+virtual environments in a convenient way.
 
 ## Requirements
 
-- python >= 3.5
+- Python >= 3.5
 - A bash-like shell with some standard programs/builtins/keywords, i.e.,
   `mkdir`, `command`, `[[`.
 
