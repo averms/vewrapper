@@ -3,7 +3,7 @@
 # Shell functions to act as wrapper for `python3 -m venv`
 #
 # Copyright (c) 2018 Christopher Sabater Cordero
-# Copyright (c) 2018 - 2019 Aman Verma
+# Copyright (c) 2018-2020 Aman Verma
 # See LICENSE file for license details.
 # -----------------------------------------------------------------------------
 
@@ -91,3 +91,7 @@ lsve() {
     # better sorting (underscores are first).
     LC_COLLATE=C \ls -1 "$VENV_HOME"
 }
+
+complete -W "$(lsve)" acve
+complete -W "$(lsve)" upve
+complete -W "$(lsve)" rmve
