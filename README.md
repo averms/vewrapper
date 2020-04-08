@@ -11,14 +11,9 @@ virtual environments in a convenient way.
 
 ## Installation
 
-There are two scripts, one for bash/zsh ~~and one for any POSIX compliant shell~~.
-The following instructions are for bash/zsh.
-
-**NOTE: The POSIX-compatible script is not maintained anymore, but you can find it in the git history.**
-
 Since the script simply exposes some global functions into your session you can
 pretty much do whatever you want to install it -- you just need to make sure that the file
-gets `source`d somehow.  Here are two options:
+gets run on every shell startup. Here are two options:
 
 - Copy `vewrapper.bash` from the latest release anywhere onto your machine, then source it in your
   `.bashrc`.
@@ -54,6 +49,8 @@ Activates the environment located at `$VENV_HOME/[env-name]`.
 
 #### `upve [env-name]`
 Updates the environment located at `$VENV_HOME/[env-name]` to the latest system python.
+This will not update the packages, so if some are not compatible with newer versions of
+Python, you will have to update them with `pip`.
 
 ## Authors
 
