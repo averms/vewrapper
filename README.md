@@ -41,23 +41,25 @@ Creates a python virtual environment at `$VENV_HOME/[env-name]`.
 
 #### `rmve [env-name]`
 
-Deletes the python virtual environment at `$VENV_HOME/[env-name]`. \[env-name\] will be
-autocompleted.
-
-#### `lsve`
-
-Provides a list of environment names currently stored in `$VENV_HOME`.
+Deletes the python virtual environment at `$VENV_HOME/[env-name]`. Press tab to
+autocomplete \[env-name\]
 
 #### `acve [env-name]`
 
-Activates the environment located at `$VENV_HOME/[env-name]`. \[env-name\] will be
-autocompleted.
+Activates the environment located at `$VENV_HOME/[env-name]`. Press tab to
+autocomplete \[env-name\]
 
 #### `upve [env-name]`
 
 Updates the environment located at `$VENV_HOME/[env-name]` to the latest system python.
-\[env-name\] will be autocompleted. This will not update the packages, so if some are
-not compatible with newer versions of Python, you will have to update them with `pip`.
+Press tab to autocomplete \[env-name\].
+
+This will not update the packages, so if some are not compatible with newer versions of
+Python, you will have to update them with `pip`.
+
+#### `lsve`
+
+Provides a list of environment names currently stored in `$VENV_HOME`.
 
 ## Authors
 
