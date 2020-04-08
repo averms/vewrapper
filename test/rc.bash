@@ -3,9 +3,9 @@
 #   . tester.bash >/dev/null 2>&1
 
 PS1='[\W] $ '
-export VENV_HOME="$(dirname "$(realpath $0)")"/venv
+export VENV_HOME="$(dirname "$(realpath $0)")"/venvs
 # reset state
-trash "$VENV_HOME"
+gio trash "$VENV_HOME"
 
 source ../vewrapper.bash
 # vim:ft=sh
