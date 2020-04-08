@@ -36,21 +36,28 @@ it to `rm -rf`, `gio trash` (default), `ktrash`, or whatever you want.
 ### Commands
 
 #### `mkve [env-name]`
+
 Creates a python virtual environment at `$VENV_HOME/[env-name]`.
 
 #### `rmve [env-name]`
-Deletes the python virtual environment at `$VENV_HOME/[env-name]`.
+
+Deletes the python virtual environment at `$VENV_HOME/[env-name]`. \[env-name\] will be
+autocompleted.
 
 #### `lsve`
+
 Provides a list of environment names currently stored in `$VENV_HOME`.
 
 #### `acve [env-name]`
-Activates the environment located at `$VENV_HOME/[env-name]`.
+
+Activates the environment located at `$VENV_HOME/[env-name]`. \[env-name\] will be
+autocompleted.
 
 #### `upve [env-name]`
+
 Updates the environment located at `$VENV_HOME/[env-name]` to the latest system python.
-This will not update the packages, so if some are not compatible with newer versions of
-Python, you will have to update them with `pip`.
+\[env-name\] will be autocompleted. This will not update the packages, so if some are
+not compatible with newer versions of Python, you will have to update them with `pip`.
 
 ## Authors
 
