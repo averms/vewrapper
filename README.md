@@ -33,6 +33,8 @@ export VENV_HOME="$HOME/.local/venv"
 The `VENV_rm` variable is the command used to remove virtual environments. You can set
 it to `rm -rf`, `gio trash` (default), `ktrash`, or whatever you want.
 
+Also, don't put spaces in environment names. It breaks the autocompletion.
+
 ### Commands
 
 #### `mkve [env-name]`
