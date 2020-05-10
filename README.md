@@ -5,22 +5,25 @@ virtual environments in a convenient way.
 
 ## Requirements
 
-- Python >= 3.5
-- A bash-like shell with some standard programs/builtins/keywords, i.e.,
-  `mkdir`, `command`, `[[`.
+- Python ≥ 3.5
+- Bash or a Bash-like shell. It uses some advanced features that more minimal shells
+  don't support like `[[` and [substring expansion]. It may work with Zsh or Mksh, but I
+  haven't got around to testing them yet.
+
+[substring expansion]: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html#Shell-Parameter-Expansion
 
 ## Installation
 
 Since the script simply exposes some global functions into your session you can
-pretty much do whatever you want to install it -- you just need to make sure that the file
+pretty much do whatever you want to install it --- you just need to make sure that the file
 gets run on every shell startup. Here are two options:
 
-- Copy `vewrapper.bash` from the latest release anywhere onto your machine, then source it in your
+- Copy `vewrapper.bash` anywhere onto your machine, then source it in your
   `.bashrc`.
 
 Or
 
-- Copy the source code in `vewrapper.bash` from the latest release into your `.bashrc`.
+- Copy the code in `vewrapper.bash` into your `.bashrc`.
 
 ## Usage
 
