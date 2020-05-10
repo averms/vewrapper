@@ -8,7 +8,7 @@
 # -----------------------------------------------------------------------------
 
 # Variables and helper functions
-if [[ -z ${VENV_HOME} ]] || [[ ${VENV_HOME: -1} = '/' ]]; then
+if [[ -z ${VENV_HOME} ]] || [[ ${VENV_HOME: -1} == '/' ]]; then
     echo "Please set your VENV_HOME to a valid string" >&2
     echo "It needs to be non-empty, real (not a symlink), and not end with a slash" >&2
     # we return non-error cause we don't want to crash the shell if -e is on
@@ -77,11 +77,11 @@ rmve() {
         echo "$VENV_noenvname" >&2
         return 1
     fi
-    if [[ ! -d $VENV_HOME/$1 || $1 = . ]]; then
+    if [[ ! -d $VENV_HOME/$1 || $1 == . ]]; then
         echo "E: '$1' does not exist." >&2
         return 1
     fi
-    [[ $VIRTUAL_ENV = $VENV_HOME/$1 ]] && deactivate
+    [[ $VIRTUAL_ENV == $VENV_HOME/$1 ]] && deactivate
 
     $VENV_rm "$VENV_HOME/$1" || return 1
     echo "'$1' was removed."
