@@ -68,5 +68,5 @@ Provides a list of environment names currently stored in `$VENV_HOME`.
 
 ## Authors
 
-- **Aman** - [a-vrma](https://github.com/a-vrma)
+- **Aman Verma** - [a-vrma](https://github.com/a-vrma)
 - **Christopher Sabater Cordero** - [cs-cordero](https://github.com/cs-cordero)

@@ -1,9 +1,9 @@
 #!/bin/bash
 # -----------------------------------------------------------------------------
-# Shell functions to act as wrapper for `python3 -m venv`
+# vewrapper: shell functions that act as a wrapper for `python3 -m venv`
 #
-# Copyright (c) 2018 Christopher Sabater Cordero
-# Copyright (c) 2018-2020 Aman Verma
+# Copyright © 2018 Christopher Sabater Cordero
+# Copyright © 2018-2020 Aman Verma
 # See LICENSE file for license details.
 # -----------------------------------------------------------------------------
 # TODO: switch to euo pipefail
