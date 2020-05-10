@@ -6,6 +6,7 @@
 # Copyright (c) 2018-2020 Aman Verma
 # See LICENSE file for license details.
 # -----------------------------------------------------------------------------
+# TODO: switch to euo pipefail
 
 # Variables and helper functions
 if [[ -z ${VENV_HOME} ]] || [[ ${VENV_HOME: -1} == '/' ]]; then
@@ -52,9 +53,9 @@ mkve() {
     [[ -n $VIRTUAL_ENV ]] && deactivate
 
     python3 -m venv "$VENV_HOME/$1"
+    # TODO: notify user of fail here
     source "$VENV_HOME/$1/bin/activate" || return 1
-    # TODO: notify user of fail here and in rmve
-    pip install -U pip setuptools
+    pip install -U pip setuptools wheel
     echo "'$1' was created"
 }
 
@@ -70,6 +71,7 @@ upve() {
     # deactivate to make sure you are upgrading to system python.
     [[ -n $VIRTUAL_ENV ]] && deactivate
 
+    # TODO: notify user of fail here
     python3 -m venv --upgrade "$VENV_HOME/$1" || return 1
     echo "'$1' was upgraded."
 }
@@ -85,6 +87,7 @@ rmve() {
     fi
     [[ $VIRTUAL_ENV == $VENV_HOME/$1 ]] && deactivate
 
+    # TODO: notify user of fail here
     $VENV_rm "$VENV_HOME/$1" || return 1
     echo "'$1' was removed."
 }
