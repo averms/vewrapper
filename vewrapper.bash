@@ -19,7 +19,9 @@ fi
 mkdir -p "$VENV_HOME"
 
 # command to use to trash venvs
-VENV_rm='gio trash'
+if [[ -z $VENV_rm ]]; then
+    VENV_rm='gio trash'
+fi
 # generic error message for when no environment name is given.
 VENV_noenvname='Please give the name of an environment.'
 
