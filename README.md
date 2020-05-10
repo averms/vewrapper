@@ -25,6 +25,8 @@ Or
 
 - Copy the code in `vewrapper.bash` into your `.bashrc`.
 
+Make sure you use the latest release and **not** master.
+
 ## Usage
 
 All virtual environments are stored in `$VENV_HOME` folder. There is no default; you need
