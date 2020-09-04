@@ -6,7 +6,6 @@
 # Copyright © 2018-2020 Aman Verma
 # See LICENSE file for license details.
 # -----------------------------------------------------------------------------
-# TODO: switch to euo pipefail
 
 # Variables and helper functions
 if [[ -z ${VENV_HOME} ]] || [[ ${VENV_HOME: -1} == '/' ]]; then
@@ -87,8 +86,7 @@ rmve() {
     fi
     [[ $VIRTUAL_ENV == $VENV_HOME/$1 ]] && deactivate
 
-    # TODO: notify user of fail here
-    $VENV_rm "$VENV_HOME/$1" || return 1
+    $VENV_rm "$VENV_HOME/$1" || { echo "Failed to remove $1, try doing it with rm -rf." >&2 && return 1; }
     echo "'$1' was removed."
 }
 
