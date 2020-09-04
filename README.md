@@ -6,17 +6,17 @@ virtual environments in a convenient way.
 ## Requirements
 
 - Python ≥ 3.5
-- Bash or a Bash-like shell. It uses some advanced features that more minimal shells
-  don't support like `[[` and [substring expansion]. It may work with Zsh or Mksh, but I
-  haven't got around to testing them yet.
+- Bash, Zsh (with `bashcompinit`), or Mksh (programmable completion doesn't work). It
+  uses some advanced features that more minimal shells don't support like `[[` and
+  [substring expansion].
 
 [substring expansion]: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html#Shell-Parameter-Expansion
 
 ## Installation
 
-Since the script simply exposes some global functions into your session you can
-pretty much do whatever you want to install it --- you just need to make sure that the file
-gets run on every shell startup. Here are two options:
+Since the script simply exposes some global functions into your session, you can install
+it however you want — you just need to make sure that the file gets run on every shell
+startup. Here are two options:
 
 - Copy `vewrapper.bash` anywhere onto your machine, then source it in your
   `.bashrc`.
