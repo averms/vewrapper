@@ -22,6 +22,11 @@ mkdir -p "$VENV_HOME"
 if [[ -z $VENV_rm ]]; then
     VENV_rm='gio trash'
 fi
+if [[ -z $VENV_use_virtualenv ]]; then
+    VENV_command='python3 -m venv'
+else
+    VENV_command='virtualenv'
+fi
 # generic error message for when no environment name is given.
 VENV_noenvname='Please give the name of an environment.'
 
@@ -51,10 +56,12 @@ mkve() {
     # safer to create venvs on system python only.
     [[ -n $VIRTUAL_ENV ]] && deactivate
 
-    python3 -m venv "$VENV_HOME/$1"
-    # TODO: notify user of fail here
+    $VENV_command "$VENV_HOME/$1"
     source "$VENV_HOME/$1/bin/activate" || return 1
-    pip install -U pip setuptools wheel
+    if [[ -z $VENV_use_virtualenv ]]; then
+        # install if not using virtualenv, which has these by default.
+        pip install -U pip setuptools wheel
+    fi
     echo "'$1' was created"
 }
 
@@ -63,6 +70,9 @@ upve() {
         echo "$VENV_noenvname" >&2
         return 1
     fi
+    if [[ -n $VENV_use_virtualenv ]]; then
+        echo "E: virtualenv doesn't support upgrading." >&2
+    fi
     if [[ ! -d $VENV_HOME/$1 ]]; then
         echo "E: '$1' does not exist." >&2
         return 1
@@ -70,8 +80,7 @@ upve() {
     # deactivate to make sure you are upgrading to system python.
     [[ -n $VIRTUAL_ENV ]] && deactivate
 
-    # TODO: notify user of fail here
-    python3 -m venv --upgrade "$VENV_HOME/$1" || return 1
+    $VENV_command --upgrade "$VENV_HOME/$1" || return 1
     echo "'$1' was upgraded."
 }
 
