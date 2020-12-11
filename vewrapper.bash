@@ -3,8 +3,9 @@
 # vewrapper: shell functions that act as a wrapper for `python3 -m venv`
 #
 # Copyright © 2018 Christopher Sabater Cordero
-# Copyright © 2018-2020 Aman Verma
-# See LICENSE file for license details.
+# Copyright © 2018-2020 Aman Verma <https://aman.raoverma.com/contact.html>
+# Distributed under the GNU General Public License v3.0 only,
+# see LICENSE.md file for details.
 # -----------------------------------------------------------------------------
 
 # Variables and helper functions
