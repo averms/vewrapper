@@ -21,7 +21,7 @@ mkdir -p "$VENV_HOME"
 
 # command to use to trash venvs
 if [[ -z $VENV_rm ]]; then
-    VENV_rm='gio trash'
+    VENV_rm='trash-put'
 fi
 if [[ -z $VENV_use_virtualenv ]]; then
     VENV_command='python3 -m venv'
