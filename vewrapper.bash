@@ -24,7 +24,7 @@ if [[ -z $VENV_rm ]]; then
     VENV_rm='trash-put'
 fi
 if [[ -z $VENV_use_virtualenv ]]; then
-    VENV_command='python3 -m venv'
+    VENV_command='python3 -m venv --upgrade-deps'
 else
     VENV_command='virtualenv'
 fi
@@ -59,10 +59,6 @@ mkve() {
 
     $VENV_command "$VENV_HOME/$1"
     source "$VENV_HOME/$1/bin/activate" || return 1
-    if [[ -z $VENV_use_virtualenv ]]; then
-        # install if not using virtualenv, which has these by default.
-        pip install -U pip setuptools wheel
-    fi
     echo "'$1' was created"
 }
 
